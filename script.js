@@ -8,6 +8,7 @@ const departmentField =
 
 const form =
   document.getElementById("registrationForm");
+
 const accountTypeInput =
   document.getElementById("accountType");
 
@@ -15,7 +16,6 @@ const phone =
   document.getElementById("phone");
 
 let accountType = "client";
-
 
 phone.addEventListener("input", function () {
 
@@ -28,7 +28,6 @@ phone.addEventListener("input", function () {
   }
 
 });
-
 
 phone.addEventListener("keydown", function (event) {
 
@@ -63,13 +62,9 @@ phone.addEventListener("keydown", function (event) {
 
 });
 
-
 function getRequiredFields() {
 
   let fields = [
-    "firstName",
-    "middleName",
-    "lastName",
     "birthdate",
     "gender",
     "email",
@@ -81,7 +76,13 @@ function getRequiredFields() {
   ];
 
   if (accountType === "associate") {
-    fields.push("department");
+
+    fields.push(
+      "firstName",
+      "middleName",
+      "lastName",
+      "department"
+    );
 
   }
 
@@ -89,14 +90,15 @@ function getRequiredFields() {
 
 }
 
-
 tabs.forEach(tab => {
 
   tab.addEventListener("click", () => {
 
     accountType =
       tab.dataset.type;
-    accountTypeInput.value = accountType;
+
+    accountTypeInput.value =
+      accountType;
 
     tabs.forEach(item => {
       item.classList.remove("active");
@@ -104,14 +106,21 @@ tabs.forEach(tab => {
 
     tab.classList.add("active");
 
-    associateName.classList.remove("active");
-    departmentField.classList.toggle("active", accountType === "associate");
+    associateName.classList.toggle(
+      "active",
+      accountType === "associate"
+    );
+
+    departmentField.classList.toggle(
+      "active",
+      accountType === "associate"
+    );
+
     clearErrors();
 
   });
 
 });
-
 
 function clearErrors() {
 
@@ -128,7 +137,6 @@ function clearErrors() {
     });
 
 }
-
 
 function showError(field, message) {
 
@@ -155,7 +163,6 @@ function showError(field, message) {
   field.parentElement.appendChild(error);
 
 }
-
 
 form.addEventListener(
   "submit",
@@ -192,7 +199,6 @@ form.addEventListener(
 
     });
 
-
     const email =
       document.getElementById("email");
 
@@ -209,7 +215,6 @@ form.addEventListener(
       );
 
     }
-
 
     const username =
       document.getElementById("username");
@@ -231,7 +236,6 @@ form.addEventListener(
 
     }
 
-
     const password =
       document.getElementById("password");
 
@@ -251,7 +255,6 @@ form.addEventListener(
       );
 
     }
-
 
     const confirmPassword =
       document.getElementById(
@@ -273,7 +276,6 @@ form.addEventListener(
 
     }
 
-
     if (
       phone.value.trim() !== "" &&
       !/^09\d{9}$/.test(
@@ -289,7 +291,6 @@ form.addEventListener(
       );
 
     }
-
 
     const birthdate =
       document.getElementById("birthdate");
@@ -317,7 +318,6 @@ form.addEventListener(
 
     }
 
-
     if (!isValid) {
 
       const firstError =
@@ -340,12 +340,10 @@ form.addEventListener(
 
     }
 
-
     form.submit();
 
   }
 );
-
 
 form.addEventListener(
   "input",
@@ -381,7 +379,6 @@ form.addEventListener(
 
   }
 );
-
 
 form.addEventListener(
   "change",

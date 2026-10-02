@@ -430,6 +430,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: grid;
 }
 
+#associateName {
+  display: none;
+}
+
+#associateName.active {
+  display: grid;
+}
+
 @media (max-width: 900px) {
 
   .brand-panel {

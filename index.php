@@ -118,7 +118,12 @@
           novalidate
         >
 
-          <input type="hidden" id="accountType" name="accountType" value="client">
+          <input
+            type="hidden"
+            id="accountType"
+            name="accountType"
+            value="client"
+          >
 
           <div
             class="form-row three"
@@ -390,24 +395,36 @@
                   Choose department
                 </option>
 
-                <option value="sales">
-                  Sales
+                <option value="administration">
+                  Administration
+                </option>
+
+                <option value="it">
+                  IT
+                </option>
+
+                <option value="dispatch">
+                  Dispatch
+                </option>
+
+                <option value="accounting">
+                  Accounting
+                </option>
+
+                <option value="hr">
+                  HR
                 </option>
 
                 <option value="marketing">
                   Marketing
                 </option>
 
-                <option value="operations">
-                  Operations
+                <option value="sales">
+                  Sales
                 </option>
 
-                <option value="engineering">
-                  Engineering
-                </option>
-
-                <option value="finance">
-                  Finance
+                <option value="customer-service">
+                  Customer Service
                 </option>
 
               </select>
