@@ -94,7 +94,7 @@ if ($accountType === 'Associate' && !in_array($department, $departments, true)) 
     showMessage('Invalid department', 'Select a department for the Associate account.');
 }
 
-$table = $accountType === 'Associate' ? 'associates' : 'clients';
+$table = $accountType === 'Associate' ? 'ASSOCIATES' : 'CLIENTS';
 $departmentValue = $accountType === 'Associate' ? $department : null;
 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -107,17 +107,17 @@ try {
     );
 
     $duplicate = $pdo->prepare(
-        'SELECT username FROM clients WHERE username = :username UNION ALL SELECT username FROM associates WHERE username = :username LIMIT 1',
+        'SELECT USERNAME FROM CLIENTS WHERE USERNAME = :client_username UNION ALL SELECT USERNAME FROM ASSOCIATES WHERE USERNAME = :associate_username LIMIT 1',
     );
-    $duplicate->execute(['username' => $username]);
+    $duplicate->execute(['client_username' => $username, 'associate_username' => $username]);
     if ($duplicate->fetch()) {
         showMessage('Username unavailable', 'That username is already in use. Choose another one.');
     }
 
-    $sql = "INSERT INTO {$table} (first_name, last_name, middle_name, birthdate, gender, email, phone, address, username, password_hash";
+    $sql = "INSERT INTO {$table} (FIRST_NAME, LAST_NAME, MIDDLE_NAME, BIRTHDATE, GENDER, EMAIL, PHONE, ADDRESS, USERNAME, PASSWORD_HASH";
     $values = ' VALUES (:first_name, :last_name, :middle_name, :birthdate, :gender, :email, :phone, :address, :username, :password_hash';
     if ($accountType === 'Associate') {
-        $sql .= ', department';
+        $sql .= ', DEPARTMENT';
         $values .= ', :department';
     }
     $statement = $pdo->prepare($sql . ')' . $values . ')');
