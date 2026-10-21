@@ -1,67 +1,124 @@
-<div align="center">
+Sun Son Solar Web System
 
-# Sun Son Solar
+Team Name: Alchemyst
 
-### Web System
+Project Description
 
-Solar products, services, and customer inquiries in one place.
+Sun Son Solar Web System is a web-based system developed for Sun Son Solar to provide customers with an easier way to view and learn about its solar products and services. The system organizes important product information, including solar panels, inverters, batteries, and other solar-related products, in one accessible platform.
 
-**Team Alchemyst**
+The system also helps Sun Son Solar manage and present its products more efficiently while allowing customers to explore available solar solutions and submit inquiries. Overall, the system aims to improve how Sun Son Solar presents its products and communicates with its customers.
 
-</div>
+Figma Design
 
----
+https://www.figma.com/design/nw6ryNA95WAqDpJeKpz8TN/JAY-WORK-STATION?node-id=297-116&t=cNwMsGlFQ5nJnUBt-1
 
-## About
+Requirements
 
-Sun Son Solar Web System helps customers explore solar products and services and submit inquiries. It also presents product information for solar panels, inverters, batteries, and related equipment.
+XAMPP — Apache and MySQL/MariaDB
 
-## Quick start
+PHP 8.2 or later
 
-1. Put the project folder in XAMPP's `htdocs` directory, such as `C:\xampp\htdocs\Alchemyst`.
-2. Start **Apache** and **MySQL** in the XAMPP Control Panel.
-3. From the project folder, install dependencies:
+Composer
 
-   ```bash
-   composer install
-   ```
+A modern web browser
 
-4. In phpMyAdmin, create or select the `sunsonsolar` database and import `database.sql` for a fresh setup. Review the SQL before importing into a database with data you need to keep.
-5. Check the database settings in `api/config.php`. The local defaults are host `127.0.0.1`, database `sunsonsolar`, username `root`, and an empty password.
+Installation and Setup
 
-## Open the site
+1. Place the Project in XAMPP
 
-With XAMPP running, use these URLs:
+Place the project folder inside the XAMPP htdocs directory.
 
-| Page | Address |
-| --- | --- |
-| Sun Son Solar homepage | [localhost/Alchemyst/public/alchemyst/](http://localhost/Alchemyst/public/alchemyst/) |
-| CodeIgniter application | [localhost/Alchemyst/public/](http://localhost/Alchemyst/public/) |
+C:\xampp\htdocs\Alchemyst
 
-The CodeIgniter root route currently shows the framework welcome page. The branded homepage is available at the first address. Replace `Alchemyst` if your project folder has a different name.
+2. Start XAMPP
 
-### Optional: CodeIgniter development server
+Open the XAMPP Control Panel and start:
 
-Run this command from the project folder:
+Apache
 
-```bash
+MySQL
+
+3. Install Dependencies
+
+Open a terminal in the project directory and run:
+
+composer install
+
+4. Set Up the Database
+
+Open phpMyAdmin.
+
+Create or select the database named sunsonsolar.
+
+Import the database.sql file for a fresh setup.
+
+Important: Review the SQL file before importing it into an existing database containing data you need to keep.
+
+Running the Application
+
+Option 1: XAMPP
+
+After starting Apache and MySQL, open the following URLs.
+
+CodeIgniter Application
+
+http://localhost/Alchemyst/public/
+
+Sun Son Solar Homepage
+
+http://localhost/Alchemyst/public/alchemyst/
+
+The CodeIgniter root route currently displays the framework welcome page, while the branded homepage is available at the separate URL above.
+
+Option 2: CodeIgniter Development Server
+
+Run the following command from the project directory:
+
 php spark serve
-```
 
-Then visit [localhost:8080](http://localhost:8080/). Keep the terminal open while using the site. MySQL must be running for database-backed features.
+Then open http://localhost:8080/.
 
-## Test accounts
+Keep the terminal open while using the application. MySQL must also be running for database-dependent features.
 
-| Account | Username | Password |
-| --- | --- | --- |
-| Client — Katherine | `KittyKat16` | `K@tSunShine16` |
-| Administrator — Sol | `admin` | `admin123` |
+Test Accounts
 
-## Project details
+The following accounts are available for local testing.
 
-| Item | Details |
-| --- | --- |
-| Team | Alchemyst |
-| Database | `sunsonsolar` |
-| Engine | MySQL / MariaDB |
-| Schema file | `database.sql` |
+Account Type
+
+Username
+
+Password
+
+Client — Katherine
+
+KittyKat16
+
+K@tSunShine16
+
+Administrator — Sol
+
+admin
+
+admin123
+
+Database Information
+
+Item
+
+Details
+
+SQL File
+
+database.sql
+
+Database Name
+
+sunsonsolar
+
+Database Engine
+
+MySQL/MariaDB
+
+Sun Son Solar Web System
+Developed by Alchemyst
