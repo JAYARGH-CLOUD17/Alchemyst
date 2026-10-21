@@ -339,9 +339,46 @@ SELECT u.id,
            ELSE TRIM(SUBSTRING(u.full_name, LENGTH(SUBSTRING_INDEX(u.full_name, ' ', 1)) + 1))
        END,
        d.id
-FROM users u
+FROM users u 
 LEFT JOIN departments d ON d.name = u.department
 WHERE u.account_type = 'employee';
+
+-- Administrator account seed data (passwords are stored as hashes).
+INSERT IGNORE INTO users
+    (full_name, username, email, phone, gender, password_hash,
+     account_type, department, status)
+VALUES
+    ('Sol Solis', 'admin', 'sol.solis@sunsonsolar.com', '09291230983',
+     'prefer-not-to-say', '$2y$10$jwVXY7tZD3RkoH1Fmhjz0uKn6qNRbjuhSKMvwv3hDpXI96HsFFJtW',
+     'admin', 'Administration', 'active'),
+    ('Katherine Sinagaraw', 'KittyKat16', 'katherine.sinagaraw@sunsonsolar.com', '09291230983',
+     'prefer-not-to-say', '$2y$10$/mjJ0qcdZk8rg/bT4Nx6t.Ls0Z7aQjKYqk4pGVTsFqpu8zihvYWwu',
+     'admin', 'Administration', 'active');
+
+INSERT IGNORE INTO employees
+    (user_id, first_name, middle_name, last_name, birthdate, address, department_id)
+SELECT u.id, 'Sol', NULL, 'Solis', '1967-01-08', 'Pasig City', d.id
+FROM users u
+JOIN departments d ON d.name = 'Administration'
+WHERE u.email = 'sol.solis@sunsonsolar.com'
+  AND u.username = 'admin'
+  AND u.account_type = 'admin';
+
+INSERT IGNORE INTO employees
+    (user_id, first_name, middle_name, last_name, birthdate, address, department_id)
+SELECT u.id, 'Katherine', NULL, 'Sinagaraw', '1990-07-01', 'Pasig City', d.id
+FROM users u
+JOIN departments d ON d.name = 'Administration'
+WHERE u.email = 'katherine.sinagaraw@sunsonsolar.com'
+  AND u.username = 'KittyKat16'
+  AND u.account_type = 'admin';
+
+INSERT IGNORE INTO user_roles (user_id, role_id)
+SELECT u.id, r.id
+FROM users u
+JOIN roles r ON r.name = 'admin'
+WHERE u.email IN ('sol.solis@sunsonsolar.com', 'katherine.sinagaraw@sunsonsolar.com')
+  AND u.account_type = 'admin';
 
 CREATE TABLE IF NOT EXISTS products (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
