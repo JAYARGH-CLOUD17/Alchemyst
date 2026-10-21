@@ -56,11 +56,11 @@ Account Type
 Admin — Katherine           
 Admin — Sol                  
 
-Usernames
+Usernames:
 KittyKat16
 admin
 
-Passwords
+Passwords:
 K@tSunShine16
 admin123
 
