@@ -52,16 +52,29 @@ php spark serve
 Then open http://localhost:8080/.
 Keep the terminal open while using the application. MySQL must also be running for database-dependent features.
 
-Account Type           Username       Password
-Admin — Katherine      KittyKat16     K@tSunShine16
-Admin — Sol            admin          admin123
+Account Type                  
+Admin — Katherine           
+Admin — Sol                  
+
+Usernames
+KittyKat16
+admin
+
+Passwords
+K@tSunShine16
+admin123
 
 Database Information
 
-Item                Details
-SQL File            database.sql
-Database Name       sunsonsolar
-Database Engine     MySQL/MariaDB
+Item               
+SQL File            
+Database Name       
+Database Engine     
+
+Details
+database.sql
+sunsonsolar
+MySQL/MariaDB
 
 Sun Son Solar Web System
 Developed by Alchemyst
